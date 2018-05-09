@@ -23,23 +23,23 @@ export default function Spell () {
         casting_time: "1 action",
         level: 2,
         school: {
-            "url": "http://dnd5eapi.co/api/magic-schools/5",
-            "name": "Evocation"
+            url: "http://dnd5eapi.co/api/magic-schools/5",
+            name: "Evocation"
         },
         classes: [
             {
-                "name": "Wizard",
-                "url": "http://dnd5eapi.co/api/classes/12"
+                name: "Wizard",
+                url: "http://dnd5eapi.co/api/classes/12"
             }
         ],
         subclasses: [
             {
-                "url": "http://dnd5eapi.co/api/subclasses/2",
-                "name": "Lore"
+                url: "http://dnd5eapi.co/api/subclasses/2",
+                name: "Lore"
             },
             {
-                "url": "http://dnd5eapi.co/api/subclasses/4",
-                "name": "Land"
+                url: "http://dnd5eapi.co/api/subclasses/4",
+                name: "Land"
             }
         ],
         url: "http://dnd5eapi.co/api/spells/1"

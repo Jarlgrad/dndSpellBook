@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchComponent from './search/SearchComponent.jsx';
 import SpellComponent from './spell/SpellComponent.jsx';
+import SpellBookComponent from './spellbook/SpellBookComponent.jsx';
 import Spell from '../services/spellservice.js';
 import './style.scss';
 
@@ -10,16 +11,6 @@ export default class App extends React.Component {
         this.state = {spell: {}}
     }
 
-    componentWillMount() {
-        let spell;
-        spell = {
-            name: "Acid Arrow"
-        };
-
-        this.setState({
-            spell: Spell()
-        });
-    }
     render() {
 
         return (
@@ -28,7 +19,7 @@ export default class App extends React.Component {
                     <h1>DnD Spell Book</h1>
                 </div>
                 <SearchComponent className="search__"/>
-                <SpellComponent name={this.state.spell.name} class />
+                <SpellBookComponent />
             </div>
         );
     }
