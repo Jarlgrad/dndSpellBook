@@ -8,6 +8,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 })
 
 module.exports = {
+  mode: 'development',
   entry: './client/index.js',
   output: {
     path: path.resolve('dist'),
@@ -19,6 +20,13 @@ module.exports = {
         use: [
           { loader: "style-loader" },
           { loader: "css-loader" }
+        ]
+      },
+      { test: /\.scss$/,
+        use: [
+          {
+            loader: "sass-loader"
+          } 
         ]
       },
       {

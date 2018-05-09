@@ -8,7 +8,6 @@ export default class SearchComponent extends React.Component {
             <div>
                 <input type="text" placeholder="search for spells" />
                 <button type="submit" title="button"/> 
-                <img src={rymdimperiet} /> 
             </div>
         );
     }
