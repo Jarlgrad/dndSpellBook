@@ -1,4 +1,14 @@
-export default function Spell () {
+export const getSpell = () => {
+    let baseUrl = 'http://www.dnd5eapi.co/api/spells/1';
+    
+    return fetch(baseUrl)
+        .then( response => {
+            return response.json();
+        });
+}
+
+export function Spell () {
+    
     return {
         _id: "58c9eb75c9e7ce9f7214efaa",
         index: 1,

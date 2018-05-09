@@ -1,5 +1,5 @@
 import React from 'react';
-import Spell from '../../services/spellservice.js';
+import { Spell, getSpell } from '../../services/spellservice.js';
 import SpellComponent from '../spell/SpellComponent.jsx';
 
 export default class SpellBookComponent extends React.Component {
@@ -10,20 +10,30 @@ export default class SpellBookComponent extends React.Component {
     }
 
     componentWillMount() {
-        let spell;
-        spell = {
-            name: "Acid Arrow"
-        };
+        getSpell()
+            .then(spell => {
 
-        this.setState({
-            spell: Spell()
-        });
+                this.setState({
+                    spell: spell
+                });
+
+                return spell;
+            });
+            // .then(spell => spell.map(
+            //     name = spell.name
+            // ));
+
+        // console.log("after fetched", fetched) ;
+        // this.setState({
+        //     spell: fetched
+        // });
+
     }
 
     render() {
         return (
             <div>
-                <span> Spell Book of lifes </span>
+                <span> Spell Book of lives </span>
                 <SpellComponent spell={this.state.spell} />
             </div>
         );
