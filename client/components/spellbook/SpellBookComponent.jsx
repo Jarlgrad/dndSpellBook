@@ -5,23 +5,21 @@ import SpellComponent from '../spell/SpellComponent.jsx';
 export default class SpellBookComponent extends React.Component {
     constructor(props){
         super(props)
-        this.state = { spell: {} }
+        this.state = { spell: props.spell}
     }
 
-    componentWillMount() {
-        getSpell()
-            .then(spell => {
-                this.setState({
-                    spell: spell
-                });
-                // console.log(this.state);
-            });
-    };
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if(nextProps.spell !== prevState.spell){
+            return {spell: nextProps.spell};
+        }
+        return null;
+    }
 
-    render() {
+    render() {        
         let render = {};
-        if(this.state.spell)
+        if(this.state.spell){
             render = <SpellComponent spell={this.state.spell} />;
+        }
 
         return (
             <div>

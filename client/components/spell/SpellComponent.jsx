@@ -4,22 +4,25 @@ import Spell from '../../services/viewModels/spell';
 export default class SpellComponent extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {spell: props.spell}
         this.searchClass = this.searchClass.bind(this);
     }
     
     searchClass (classToSearch) {
         alert(`You can learn more about ${classToSearch.name}s at ${classToSearch.url}`)
     };
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if(nextProps.spell !== prevState.spell){
+            return {spell: nextProps.spell};
+        }
+        return null;
+    }
     
     render() {
         let spell = {};
-        let components = [];
-
-        if (this.props.spell.components){
-            
-            console.log("before rendering components", this.props.spell);
+        if (this.state.spell.name){
             spell = new Spell(this.props.spell);
-            console.log("rendered components", spell);
         }
 
         return (

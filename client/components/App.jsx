@@ -1,16 +1,22 @@
 import React from 'react';
 import SearchComponent from './search/SearchComponent.jsx';
-import SpellComponent from './spell/SpellComponent.jsx';
 import SpellBookComponent from './spellbook/SpellBookComponent.jsx';
-import Spell from '../services/spellservice.js';
+import { getSpell } from '../services/spellservice.js';
 import './style.scss';
 
 export default class App extends React.Component {
     constructor(props){
         super(props)
         this.state = {spell: {}}
+        this.searchSpell = this.searchSpell.bind(this);
     }
 
+    searchSpell(searchInput) {
+        console.log("in app.jsx", searchInput);
+        getSpell(searchInput)
+            .then(spell => this.setState({ spell: spell }));
+        };
+    
     render() {
 
         return (
@@ -18,8 +24,8 @@ export default class App extends React.Component {
                 <div style={{textAlign: 'center'}}>
                     <h1>DnD Spell Book</h1>
                 </div>
-                <SearchComponent className="search__"/>
-                <SpellBookComponent />
+                <SearchComponent search={this.searchSpell}/>
+                <SpellBookComponent spell={this.state.spell}/>
             </div>
         );
     }
