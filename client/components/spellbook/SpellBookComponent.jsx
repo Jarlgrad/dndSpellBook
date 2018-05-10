@@ -23,19 +23,10 @@ export default class SpellBookComponent extends React.Component {
 
         const render = <SpellComponent spell={this.state.spell} />
 
-        let components = [];
-        if (this.state.spell.components){
-            console.log("this.state.spell is active", this.state);
-            components = this.state.spell.components
-               .map( (c, index) => <span key={index}>{c}, </span> );
-        }
-
         return (
             <div>
                 <span> Spell Book of lives </span>
                 <div> { render } </div>
-                <div> Components: {components } </div>
-                {/* <SpellComponent spell={this.state.spell} /> */}
             </div>
         );
     }
