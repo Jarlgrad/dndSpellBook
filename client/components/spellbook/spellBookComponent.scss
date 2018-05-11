@@ -1,0 +1,9 @@
+.spelList__ {
+    display: flex;
+    flex-direction: column;
+
+    spell{
+        display: contents;
+        margin-bottom: 10px;
+    }
+}

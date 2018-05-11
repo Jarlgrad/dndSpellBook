@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchComponent from './search/SearchComponent.jsx';
-import SpellBookComponent from './spellbook/SpellBookComponent.jsx';
+import CenterSpreadComponent from './centerSpread/CenterSpreadComponent.jsx';
 import { getSpellByName } from '../services/spellservice.js';
 import './style.scss';
 
@@ -27,7 +27,7 @@ export default class App extends React.Component {
                     <h1>DnD Spell Book</h1>
                 </div>
                 <SearchComponent search={this.searchSpell}/>
-                <SpellBookComponent spell={this.state.spell}/>
+                <CenterSpreadComponent spell={this.state.spell}/>
             </div>
         );
     }

@@ -1,5 +1,6 @@
 import React from 'react';
 import Spell from '../../services/viewModels/spell';
+import './spellComponent.scss';
 
 export default class SpellComponent extends React.Component {
     constructor(props) {
@@ -11,6 +12,8 @@ export default class SpellComponent extends React.Component {
     searchClass (classToSearch) {
         alert(`You can learn more about ${classToSearch.name}s at ${classToSearch.url}`)
     };
+
+    
 
     static getDerivedStateFromProps(nextProps, prevState) {
         if(nextProps.spell !== prevState.spell){
@@ -25,10 +28,17 @@ export default class SpellComponent extends React.Component {
             spell = new Spell(this.props.spell);
         }
 
+        const handleClickOnPlus = () => {
+            console.log("so you want to add the spell to your book?");
+        }
+
         return (
     
-        <div>
-            <h4> Spell: {spell.name} </h4>
+        <div className="spell__">
+            <div className="spell__header">
+                <span> Spell: {spell.name} </span>
+                <span className="plus" onClick={(e) => handleClickOnPlus()}> + </span>
+            </div>
             <ul>
                 <li> Level required: {spell.level} </li>
                 <li> Class: {spell.classes} </li>

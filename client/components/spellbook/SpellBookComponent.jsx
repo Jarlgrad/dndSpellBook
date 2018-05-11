@@ -1,29 +1,21 @@
 import React from 'react';
-import SpellComponent from '../spell/SpellComponent.jsx';
+import './spellBookComponent.scss';
 
 export default class SpellBookComponent extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = { spell: props.spell}
-    }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        if(nextProps.spell !== prevState.spell){
-            return {spell: nextProps.spell};
-        }
-        return null;
-    }
+    render() {
+        
+        const spellList = [
+            { name: "spell 1" }, 
+            { name: "spell 2" }
+        ];
 
-    render() {        
-        let render = "";
-        if(this.state.spell){
-            render = <SpellComponent spell={this.state.spell} />;
-        }
-
+        let renderSpellList = spellList
+            .map((s, index) => <div key={index}> <span className="spelList__spell" > {index} {s.name} </span> </div> )
+        
         return (
-            <div>
-                <span> Spell Book of lives </span>
-                <div> { render } </div>
+            <div> 
+                {renderSpellList}
             </div>
         );
     }

@@ -32,7 +32,6 @@ export default class SearchComponent extends React.Component {
     }
 
     render() {
-        console.log(SearchGlass);
         return (
             <div>
                 <input  type="text" 
