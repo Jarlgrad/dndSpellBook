@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchGlass from '../../static/img/search.png';
 
 export default class SearchComponent extends React.Component {
     constructor(props) {
@@ -31,15 +32,15 @@ export default class SearchComponent extends React.Component {
     }
 
     render() {
+        console.log(SearchGlass);
         return (
             <div>
                 <input  type="text" 
                         placeholder="search for spells"
                         onChange={e => this.updateInputValue(e)} />
-                <button type="submit" 
-                        onClick={e => this.onSearchButtonClick(e)}/> 
+                <img    src={SearchGlass} 
+                        onClick={e => this.onSearchButtonClick(e)} />
             </div>
         );
-
     }
 }
