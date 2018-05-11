@@ -1,5 +1,4 @@
 import React from 'react';
-import { getSpell } from '../../services/spellservice.js';
 import SpellComponent from '../spell/SpellComponent.jsx';
 
 export default class SpellBookComponent extends React.Component {
@@ -16,7 +15,7 @@ export default class SpellBookComponent extends React.Component {
     }
 
     render() {        
-        let render = {};
+        let render = "";
         if(this.state.spell){
             render = <SpellComponent spell={this.state.spell} />;
         }

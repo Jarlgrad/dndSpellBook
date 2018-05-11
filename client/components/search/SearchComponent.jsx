@@ -6,12 +6,28 @@ export default class SearchComponent extends React.Component {
         this.state = {inputValue: ""}
     }
 
-
     updateInputValue(evt) {
         this.setState({
             inputValue: evt.target.value
         })
-        console.log(this.state.inputValue);
+    }
+
+    buildQueryString() {
+        let wordArray = this.state.inputValue.split(" ");
+        let queryString = "";
+        wordArray.forEach((w, index) => { 
+            let word = w.charAt(0).toUpperCase() + w.slice(1);
+            if (index < wordArray.length-1) {
+                word += "+";
+            }
+            queryString += word;
+        });
+        return queryString;
+    }
+
+    onSearchButtonClick(e) {
+        const queryString = this.buildQueryString();
+        this.props.search(queryString);
     }
 
     render() {
@@ -19,9 +35,9 @@ export default class SearchComponent extends React.Component {
             <div>
                 <input  type="text" 
                         placeholder="search for spells"
-                        onChange={evt => this.updateInputValue(evt)} />
+                        onChange={e => this.updateInputValue(e)} />
                 <button type="submit" 
-                        onClick={(e) => this.props.search(this.state.inputValue)}/> 
+                        onClick={e => this.onSearchButtonClick(e)}/> 
             </div>
         );
 

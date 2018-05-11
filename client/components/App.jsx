@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchComponent from './search/SearchComponent.jsx';
 import SpellBookComponent from './spellbook/SpellBookComponent.jsx';
-import { getSpell } from '../services/spellservice.js';
+import { getSpellByName } from '../services/spellservice.js';
 import './style.scss';
 
 export default class App extends React.Component {
@@ -12,9 +12,11 @@ export default class App extends React.Component {
     }
 
     searchSpell(searchInput) {
-        console.log("in app.jsx", searchInput);
-        getSpell(searchInput)
-            .then(spell => this.setState({ spell: spell }));
+        getSpellByName(searchInput)
+            .then(spell => {
+                console.log("return from spellservice", spell);
+                this.setState({ spell: spell })
+            });
         };
     
     render() {
