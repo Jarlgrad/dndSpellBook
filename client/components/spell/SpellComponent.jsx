@@ -5,7 +5,7 @@ import './spellComponent.scss';
 export default class SpellComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {spell: props.spell}
+        this.state = {spell: props.spell, spellBook: props.spellBook}
         this.searchClass = this.searchClass.bind(this);
     }
     
@@ -29,7 +29,8 @@ export default class SpellComponent extends React.Component {
         }
 
         const handleClickOnPlus = () => {
-            console.log("so you want to add the spell to your book?");
+            console.log("in SpellComponent, trying to add spell:", this.state.spell);
+            this.props.addSpell(this.state.spell);
         }
 
         return (

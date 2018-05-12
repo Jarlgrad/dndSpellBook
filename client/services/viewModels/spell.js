@@ -10,8 +10,10 @@ const Spell = function(input) {
     spell.components = input.components
         .map((c, index) => <span key={index}>{c}, </span> );
 
-    let material = input.material;
-    spell.material = material.replace("â€™", "'");
+    if (input.material) {
+        let material = input.material;
+        spell.material = material.replace("â€™", "'");
+    }
 
     spell.classes = input.classes
         .map((c, index) => <span key={index} onClick={(e) => searchClass(c)}>{c.name}</span>)

@@ -14,20 +14,22 @@ export default class App extends React.Component {
     searchSpell(searchInput) {
         getSpellByName(searchInput)
             .then(spell => {
-                console.log("return from spellservice", spell);
                 this.setState({ spell: spell })
             });
         };
     
     render() {
-
+        const spellBook = [];
         return (
             <div >
                 <div style={{textAlign: 'center'}}>
                     <h1>DnD Spell Book</h1>
                 </div>
                 <SearchComponent search={this.searchSpell}/>
-                <CenterSpreadComponent spell={this.state.spell}/>
+                <CenterSpreadComponent 
+                    spell={this.state.spell}
+                    spellBook={spellBook}
+                    />
             </div>
         );
     }
