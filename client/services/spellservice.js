@@ -12,7 +12,10 @@ export const getSpellByName = (queryString) => {
             const spellId = getIdFromUrl(spell);
             return getSpellById(spellId);
         })
-        .catch(reason => console.log(reason));   
+        .catch(reason => {
+            console.log(reason)
+            return null;
+        });
 }
 
 const getSpellById = (spellId) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchComponent from './search/SearchComponent.jsx';
 import CenterSpreadComponent from './centerSpread/CenterSpreadComponent.jsx';
-import { getSpellByName } from '../services/spellservice.js';
+import { getSpellByName } from '../services/spellService.js';
 import './style.scss';
 
 export default class App extends React.Component {
@@ -11,7 +11,7 @@ export default class App extends React.Component {
         this.searchSpell = this.searchSpell.bind(this);
     }
 
-    searchSpell(searchInput) {
+    searchSpell = (searchInput) => {
         getSpellByName(searchInput)
             .then(spell => {
                 this.setState({ spell: spell })

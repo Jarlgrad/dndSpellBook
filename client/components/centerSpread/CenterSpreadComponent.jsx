@@ -15,7 +15,7 @@ export default class CenterSpreadComponent extends React.Component {
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
-        if(nextProps.spell !== prevState.spell){
+        if(nextProps.spell && nextProps.spell !== prevState.spell){
             return {spell: nextProps.spell};
         }
         return null;

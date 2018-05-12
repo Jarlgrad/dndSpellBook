@@ -7,9 +7,9 @@ export default class SearchComponent extends React.Component {
         this.state = {inputValue: ""}
     }
 
-    updateInputValue(evt) {
+    updateInputValue = (e) => {
         this.setState({
-            inputValue: evt.target.value
+            inputValue: e.target.value
         })
     }
 
@@ -26,9 +26,11 @@ export default class SearchComponent extends React.Component {
         return queryString;
     }
 
-    onSearchButtonClick(e) {
-        const queryString = this.buildQueryString();
-        this.props.search(queryString);
+    onSearchButtonClick = (e) => {
+        if (e.key == "Enter" || e.type == "click"){
+            const queryString = this.buildQueryString();
+            this.props.search(queryString);
+        } 
     }
 
     render() {
@@ -36,9 +38,10 @@ export default class SearchComponent extends React.Component {
             <div>
                 <input  type="text" 
                         placeholder="search for spells"
-                        onChange={e => this.updateInputValue(e)} />
+                        onChange={this.updateInputValue} 
+                        onKeyUp={this.onSearchButtonClick} />
                 <img    src={SearchGlass} 
-                        onClick={e => this.onSearchButtonClick(e)} />
+                        onClick={this.onSearchButtonClick} />
             </div>
         );
     }

@@ -20,6 +20,7 @@ export default class SpellBookComponent extends React.Component {
         
         return (
             <div> 
+                <h4> My Spell Book </h4>
                 {renderSpellBook}
             </div>
         );

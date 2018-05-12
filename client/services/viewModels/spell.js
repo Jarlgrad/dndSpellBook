@@ -4,6 +4,8 @@ const searchClass = (classToSearch) => {
     return alert(`You can learn more about ${classToSearch.name}s at ${classToSearch.url}`);
 };
 
+const singleQuoteRegEx = new RegExp(/(â€™)/g);
+
 const Spell = function(input) {
     let spell = {};
     spell.name = input.name;
@@ -11,12 +13,12 @@ const Spell = function(input) {
         .map((c, index) => <span key={index}>{c}, </span> );
 
     if (input.material) {
-        let material = input.material;
-        spell.material = material.replace("â€™", "'");
+        let stringToReplace = input.material;
+        spell.material = stringToReplace.replace(singleQuoteRegEx, "'");
     }
 
     spell.classes = input.classes
-        .map((c, index) => <span key={index} onClick={(e) => searchClass(c)}>{c.name}</span>)
+        .map((c, index) => <span key={index} onClick={(e) => searchClass(c)}>{c.name},</span>)
     
     spell.subClasses = input.subclasses
         .map((s, index) => <span key={index} onClick={(e) => searchClass(s)}>{s.name}, </span>)
@@ -24,6 +26,19 @@ const Spell = function(input) {
     spell.level = input.level;
     spell.range = input.range;
     spell.school = <span onClick={(e) => searchClass(input.school)}>{input.school.name} </span>;
+    
+    if (input.desc) {
+        const tempDesc = [];
+        input.desc.forEach((description, index) => {
+            const replacedString = description.replace(singleQuoteRegEx, "'");
+            tempDesc.push(replacedString);
+        });
+
+        spell.description = tempDesc
+            .map((description, index) => <div key={index}> <span>{description} </span> <br /> </div>)
+        
+    }
+    
     return spell;
 }
 export default Spell;

@@ -24,7 +24,7 @@ export default class SpellComponent extends React.Component {
     
     render() {
         let spell = {};
-        if (this.state.spell.name){
+        if (Object.keys(this.props.spell).length !== 0){
             spell = new Spell(this.props.spell);
         }
 
@@ -40,15 +40,18 @@ export default class SpellComponent extends React.Component {
                 <span> Spell: {spell.name} </span>
                 <span className="plus" onClick={(e) => handleClickOnPlus()}> + </span>
             </div>
-            <ul>
-                <li> Level required: {spell.level} </li>
-                <li> Class: {spell.classes} </li>
-                <li> School: {spell.school} </li>
-                <li> Range: {spell.range} </li>
-                <li> Components: {spell.components} </li>
-                <li> Material: {spell.material} </li>
-                <li> SubClasses: {spell.subClasses} </li>
-            </ul>
+            <div className="spell__body">
+                <ul>
+                    <li> Level required: {spell.level} </li>
+                    <li> Class: {spell.classes} </li>
+                    <li> School: {spell.school} </li>
+                    <li> Range: {spell.range} </li>
+                    <li> Components: {spell.components} </li>
+                    <li> Material: {spell.material} </li>
+                    <li> SubClasses: {spell.subClasses} </li>
+                    <li> Description: {spell.description} </li>
+                </ul>
+            </div>
         </div>
         )
     }
