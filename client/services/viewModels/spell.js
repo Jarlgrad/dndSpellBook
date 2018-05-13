@@ -1,12 +1,12 @@
 import React from 'react';
 
-const searchClass = (classToSearch) => {
-    return alert(`You can learn more about ${classToSearch.name}s at ${classToSearch.url}`);
-};
+// const searchClass = (classToSearch) => {
+//     return alert(`You can learn more about ${classToSearch.name}s at ${classToSearch.url}`);
+// };
 
 const singleQuoteRegEx = new RegExp(/(â€™)/g);
 
-const Spell = function(input) {
+const Spell = function(input, searchClass) {
     let spell = {};
     spell.name = input.name;
     spell.components = input.components

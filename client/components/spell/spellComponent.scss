@@ -7,14 +7,22 @@
 .spell__{
 
     &description{
-        max-width: 300px;
     }
     
+    &body{
+        margin-left:30px;
+        display: flex;
+        flex-direction: column;
+    }
+    &infoSpan{
+        margin-bottom: 5px;
+    }
+
     &header{
         margin-left: 30px;
+        margin-bottom: 10px;
+        font-weight: bolder;
         display: flex;
         flex-wrap: wrap;
     }
-
-    
 }
