@@ -23,13 +23,14 @@ export default class SpellComponent extends React.Component {
     }
     
     render() {
-        let spell = {};
-        if (Object.keys(this.props.spell).length !== 0){
-            spell = new Spell(this.props.spell);
+        const { spell, spellBook } = this.state;
+
+        let renderedSpell = {};
+        if (Object.keys(spell).length !== 0){
+            renderedSpell = new Spell(spell);
         }
 
         const handleClickOnPlus = () => {
-            console.log("in SpellComponent, trying to add spell:", this.state.spell);
             this.props.addSpell(this.state.spell);
         }
 
@@ -42,14 +43,14 @@ export default class SpellComponent extends React.Component {
             </div>
             <div className="spell__body">
                 <ul>
-                    <li> Level required: {spell.level} </li>
-                    <li> Class: {spell.classes} </li>
-                    <li> School: {spell.school} </li>
-                    <li> Range: {spell.range} </li>
-                    <li> Components: {spell.components} </li>
-                    <li> Material: {spell.material} </li>
-                    <li> SubClasses: {spell.subClasses} </li>
-                    <li> Description: {spell.description} </li>
+                    <li> Level required: {renderedSpell.level} </li>
+                    <li> Class: {renderedSpell.classes} </li>
+                    <li> School: {renderedSpell.school} </li>
+                    <li> Range: {renderedSpell.range} </li>
+                    <li> Components: {renderedSpell.components} </li>
+                    <li> Material: {renderedSpell.material} </li>
+                    <li> SubClasses: {renderedSpell.subClasses} </li>
+                    <li> Description: {renderedSpell.description} </li>
                 </ul>
             </div>
         </div>

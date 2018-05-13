@@ -15,8 +15,10 @@ export default class SpellBookComponent extends React.Component {
     }
 
     render() {
-        let renderSpellBook = this.state.spellBook
-            .map((s, index) => <div key={index}> <span className="spellBook__spell" > {index} {s.name} </span> </div> )
+        const spellBook = this.state.spellBook;
+
+        let renderSpellBook = spellBook
+            .map((s, index) => <div key={index}> <span className="spellBook__spell"> {index} {s.name} </span> </div> )
         
         return (
             <div> 

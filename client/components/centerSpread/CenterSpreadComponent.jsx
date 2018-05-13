@@ -29,18 +29,19 @@ export default class CenterSpreadComponent extends React.Component {
     }
     
     render() {
-
+        const { spell, spellBook } = this.state;
+        
         return (
             <div className="centerSpread">
                 <SpellComponent 
                     className="leftPage" 
-                    spell={this.state.spell} 
-                    spellBook={this.state.spellBook} 
+                    spell={spell} 
+                    spellBook={spellBook} 
                     addSpell={this.addSpell}
                     />
                 <SpellBookComponent 
                     className="rightPage"
-                    spellBook={this.state.spellBook}
+                    spellBook={spellBook}
                     />
                 
             </div>

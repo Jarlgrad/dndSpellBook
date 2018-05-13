@@ -1,16 +1,20 @@
 .plus{
+    margin-left: 10px;
+    font-weight: bolder;
     font-size: 16px;
 }
 
 .spell__{
 
-    header{
+    &description{
+        max-width: 300px;
+    }
+    
+    &header{
         margin-left: 30px;
         display: flex;
         flex-wrap: wrap;
     }
 
-    body{
-        
-    }
+    
 }

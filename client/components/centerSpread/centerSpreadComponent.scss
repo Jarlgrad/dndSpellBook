@@ -4,13 +4,18 @@
 }
 
 .leftPage {
+    display: flex;
     margin-left: 20px;
-    align-self: auto;
-    width: 200px;
+    flex-basis: 350px;
+    max-width: 450px;
+    min-width: 400px;
 }
 
 .rightPage {
+    display: flex;
     margin-right: 20px;
     align-self: auto;
-    width: 40%;
+    flex-basis: 350px;
+    max-width: 450px;
+    min-width: 400px;
 }

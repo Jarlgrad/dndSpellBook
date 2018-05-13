@@ -35,7 +35,7 @@ const Spell = function(input) {
         });
 
         spell.description = tempDesc
-            .map((description, index) => <div key={index}> <span>{description} </span> <br /> </div>)
+            .map((description, index) => <div className="spell__description" key={index}> <span>{description} </span> <br /> </div>)
         
     }
     
