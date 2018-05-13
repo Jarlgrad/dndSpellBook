@@ -11,7 +11,7 @@ export default class App extends React.Component {
         this.searchSpell = this.searchSpell.bind(this);
     }
 
-    searchSpell = (searchInput) => {
+    searchSpell = searchInput => {
         getSpellByName(searchInput)
             .then(spell => {
                 this.setState({ spell: spell })
@@ -25,7 +25,7 @@ export default class App extends React.Component {
                 <div style={{textAlign: 'center'}}>
                     <h1>DnD Spell Book</h1>
                 </div>
-                <SearchComponent search={this.searchSpell}/>
+                <SearchComponent searchSpell={this.searchSpell}/>
                 <CenterSpreadComponent 
                     spell={this.state.spell}
                     spellBook={spellBook}

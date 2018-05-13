@@ -26,10 +26,10 @@ export default class SearchComponent extends React.Component {
         return queryString;
     }
 
-    onSearchButtonClick = (e) => {
+    submitSearch = (e) => {
         if (e.key == "Enter" || e.type == "click"){
             const queryString = this.buildQueryString();
-            this.props.search(queryString);
+            this.props.searchSpell(queryString);
         } 
     }
 
@@ -40,9 +40,9 @@ export default class SearchComponent extends React.Component {
                 <input  type="text" 
                         placeholder="search for spells"
                         onChange={this.updateInputValue} 
-                        onKeyUp={this.onSearchButtonClick} />
+                        onKeyUp={this.submitSearch} />
                 <img    src={SearchGlass} 
-                        onClick={this.onSearchButtonClick} />
+                        onClick={this.submitSearch} />
             </div>
         );
     }

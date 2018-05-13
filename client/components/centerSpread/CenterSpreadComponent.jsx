@@ -12,6 +12,7 @@ export default class CenterSpreadComponent extends React.Component {
             spellBook: props.spellBook
         }
         this.addSpell = this.addSpell.bind(this);
+        this.displaySpell = this.displaySpell.bind(this);
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
@@ -21,8 +22,14 @@ export default class CenterSpreadComponent extends React.Component {
         return null;
     }
 
+    displaySpell(spellToDisplay) {
+        console.log(`in displaySpell in CenterSpread before displaying spell:`, spellToDisplay); 
+
+        this.setState({ spell: spellToDisplay });
+    }
+
     addSpell(spell) {
-        console.log(`in addSpell in CenterSpread before adding, spellBook: ${this.state.spellBook}, spell: ${spell}`);
+        console.log(`in addSpell in CenterSpread before adding, spellBook length: ${this.state.spellBook.length}, spell:`, spell);
         this.setState(prevState => ({ 
             spellBook: [...prevState.spellBook, spell] 
         }));
@@ -30,7 +37,7 @@ export default class CenterSpreadComponent extends React.Component {
     
     render() {
         const { spell, spellBook } = this.state;
-        
+
         return (
             <div className="centerSpread">
                 <SpellComponent 
@@ -42,6 +49,7 @@ export default class CenterSpreadComponent extends React.Component {
                 <SpellBookComponent 
                     className="rightPage"
                     spellBook={spellBook}
+                    displaySpell={this.displaySpell}
                     />
                 
             </div>

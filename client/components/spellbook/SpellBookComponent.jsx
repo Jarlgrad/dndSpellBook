@@ -14,11 +14,21 @@ export default class SpellBookComponent extends React.Component {
         return null;
     }
 
+    selectSpell = (spell) => {
+        this.props.displaySpell(spell);
+    }
+
     render() {
         const spellBook = this.state.spellBook;
-
+        
         let renderSpellBook = spellBook
-            .map((s, index) => <div key={index}> <span className="spellBook__spell"> {index} {s.name} </span> </div> )
+            .map((s, index) => 
+            <div key={index}> 
+                <span onClick={(e) => this.selectSpell(s)} className="spellBook__spell"> 
+                    {index} {s.name} 
+                </span> 
+            </div> 
+        );
         
         return (
             <div> 
