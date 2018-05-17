@@ -21,11 +21,11 @@ export default class App extends React.Component {
     render() {
         const spellBook = [];
         return (
-            <div >
+            <div classname="appContainer__">
                 <div style={{textAlign: 'center'}}>
                     <h1>DnD Spell Book</h1>
                 </div>
-                <SearchComponent searchSpell={this.searchSpell}/>
+                <SearchComponent className="searchContainer__" searchSpell={this.searchSpell}/>
                 <CenterSpreadComponent 
                     spell={this.state.spell}
                     spellBook={spellBook}
