@@ -14,6 +14,9 @@ module.exports = {
     path: path.resolve('dist'),
     filename: 'index_bundle.js'
   },
+  node: {
+    fs: "empty"
+  },
   module: {
     rules: [
       { test: /\.scss$/,
@@ -37,10 +40,10 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: {}
           }
         ]
-      }
+      },
+
     ]
   },
 
