@@ -67,9 +67,7 @@ export default class SpellComponent extends React.Component {
             return ( 
                 <Modal
                     isOpen={descriptionModalIsOpen}
-                    onRequestClose={this.closeModal}
-                    >
-                    <h5> This is the spell description modal </h5>
+                    onRequestClose={this.closeModal} >
                     <span> {renderedSpell.description} </span>
                 </Modal>
             );
@@ -89,16 +87,16 @@ export default class SpellComponent extends React.Component {
                     }
                 </div>
                 <div className="spell__body">
-                    <span className="spell__infoSpan"> Level required: {renderedSpell.level} </span>
-                    <span className="spell__infoSpan"> Class: {renderedSpell.classes} </span>
-                    <span className="spell__infoSpan"> School: {renderedSpell.school} </span>
-                    <span className="spell__infoSpan"> Range: {renderedSpell.range} </span>
-                    <span className="spell__infoSpan"> Components: {renderedSpell.components} </span>
+                    <span> Level required: {renderedSpell.level} </span>
+                    <span> Class: {renderedSpell.classes} </span>
+                    <span> School: {renderedSpell.school} </span>
+                    <span> Range: {renderedSpell.range} </span>
+                    <span> Components: {renderedSpell.components} </span>
                     {spell.material &&
-                        <span className="spell__infoSpan"> Material: {renderedSpell.material} </span>
+                        <span> Material: {renderedSpell.material} </span>
                     }
-                    <span className="spell__infoSpan"> SubClasses: {renderedSpell.subClasses} </span>
-                    <span className="spell__infoSpan" onClick={this.openModal}> Read Description </span>
+                    <span> SubClasses: {renderedSpell.subClasses} </span>
+                    <span onClick={this.openModal}> Read Description </span>
                 </div>
             </div>
         }

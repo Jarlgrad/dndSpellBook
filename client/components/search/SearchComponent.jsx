@@ -14,11 +14,11 @@ export default class SearchComponent extends React.Component {
     }
 
     buildQueryString() {
-        let wordArray = this.state.inputValue.split(" ");
+        let searchTerms = this.state.inputValue.split(" ");
         let queryString = "";
-        wordArray.forEach((w, index) => { 
+        searchTerms.forEach((w, index) => { 
             let word = w.charAt(0).toUpperCase() + w.slice(1);
-            if (index < wordArray.length-1) {
+            if (index < searchTerms.length-1) {
                 word += "+";
             }
             queryString += word;
