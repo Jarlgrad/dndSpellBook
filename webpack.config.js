@@ -1,11 +1,5 @@
 const path = require('path');
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-    template: './client/index.html',
-    filename: 'index.html',
-    inject: 'body'
-})
+const plugins = require('./webpack.plugins.js');
 
 module.exports = {
   mode: 'development',
@@ -44,5 +38,5 @@ module.exports = {
     ]
   },
 
-  plugins: [HtmlWebpackPluginConfig]
+  plugins: [plugins.htmlWebpack, plugins.manifest, plugins.serviceWorker]
 }

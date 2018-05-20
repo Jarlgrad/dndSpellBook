@@ -1,0 +1,15 @@
+{
+  "short_name": "DnD Tome",
+  "name": "DnD Tome for Spellcasting",
+  "icons": [
+    {
+      "src": "/.client/static/img/aw_rymdimperiet.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff"
+}

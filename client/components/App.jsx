@@ -21,7 +21,7 @@ export default class App extends React.Component {
     render() {
         const spellBook = [];
         return (
-            <div classname="appContainer__">
+            <div className="appContainer__">
                 <div style={{textAlign: 'center'}}>
                     <h1>DnD Spell Book</h1>
                 </div>
