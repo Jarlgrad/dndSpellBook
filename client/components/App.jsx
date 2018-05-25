@@ -2,6 +2,7 @@ import React from 'react';
 import SearchComponent from './search/SearchComponent.jsx';
 import CenterSpreadComponent from './centerSpread/CenterSpreadComponent.jsx';
 import { getSpellByName } from '../services/spellService.js';
+import { getPlayerByName } from '../services/playerService.js';
 import './style.scss';
 
 export default class App extends React.Component {
@@ -12,11 +13,14 @@ export default class App extends React.Component {
     }
 
     searchSpell = searchInput => {
+        console.log("trying to call dndTome from app.jsx");
+        getPlayerByName("jonas").then(name => alert(`${name} is here`));
+        
         getSpellByName(searchInput)
             .then(spell => {
                 this.setState({ spell: spell })
             });
-        };
+    };
     
     render() {
         const spellBook = [];

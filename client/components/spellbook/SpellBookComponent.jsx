@@ -1,5 +1,6 @@
 import React from 'react';
 import './spellBookComponent.scss';
+import { getPlayerByName } from '../../services/playerService.js';
 
 export default class SpellBookComponent extends React.Component {
     constructor(props) {
@@ -16,6 +17,10 @@ export default class SpellBookComponent extends React.Component {
 
     selectSpell = (spell) => {
         this.props.displaySpell(spell);
+    }
+
+    getPlayer = () => {
+        getPlayerByName("jonas").then(name => alert(`${name} is here`));
     }
 
     render() {
