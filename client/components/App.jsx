@@ -14,10 +14,11 @@ export default class App extends React.Component {
 
     searchSpell = searchInput => {
         console.log("trying to call dndTome from app.jsx");
-        getPlayerByName("jonas").then(name => alert(`${name} is here`));
+        getPlayerByName("jonas");
         
         getSpellByName(searchInput)
             .then(spell => {
+                console.log("inside app.jsx", spell);
                 this.setState({ spell: spell })
             });
     };

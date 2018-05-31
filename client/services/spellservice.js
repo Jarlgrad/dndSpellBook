@@ -1,25 +1,19 @@
 export const getSpellByName = (spellParam) => {
 
-    
-    // let baseUrl = 'http://www.dnd5eapi.co/api/spells/';
-    // const queryByName = `?name=${queryString}`; 
-    
-
-    let apiBaseUrl = process.env.NODE_ENV !== 'production' 
-        ? "http://localhost:37813/api"
-        : "https://dndtomeapi.azurewebsites.net/api";
+    let apiBaseUrl = process.env.NODE_ENV === 'production' 
+        ? "https://dndtomeapi.azurewebsites.net/api"
+        : "http://localhost:37813/api";
 
     const queryStringByName = `${apiBaseUrl}/spells/${spellParam}`;
    
     return fetch(queryStringByName, {
-        mode: 'no-cors'
+        mode: 'no-cors',
+        headers: { 
+            "Content-Type": "application/json" 
+        },
     }).then(response => {
-            if (response.ok) {
-                return response.json();
-            }
-        }).then(spell => {
-            const spellId = getIdFromUrl(spell);
-            return getSpellById(spellId);
+        console.log("response", response);
+            cache.put(request, response);
         })
         .catch(reason => {
             console.log(reason)

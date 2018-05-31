@@ -20,7 +20,7 @@ export default class SpellBookComponent extends React.Component {
     }
 
     getPlayer = () => {
-        getPlayerByName("jonas").then(name => alert(`${name} is here`));
+        getPlayerByName("jonas").then(name => console.log(`${name} is here`));
     }
 
     render() {

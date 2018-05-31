@@ -3,7 +3,7 @@ export const getPlayerByName = playerName => {
     let queryStringByName = `${baseUrl}players?playerName=${playerName}`;
 
     return fetch(queryStringByName, {
-        mode: 'cors',
+        mode: 'no-cors',
     }).then(response => {
         if (response.ok) {
             return response.json();
