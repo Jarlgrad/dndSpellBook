@@ -1,16 +1,14 @@
 export const getSpellByName = (spellParam) => {
 
-    let apiBaseUrl = process.env.NODE_ENV === 'production' 
+    let apiBaseUrl = process.env.NODE_ENV === "production" 
         ? "https://dndtomeapi.azurewebsites.net/api"
         : "http://localhost:37813/api";
 
-    const queryStringByName = `${apiBaseUrl}/spells/${spellParam}`;
+
+    const queryStringByName = `${apiBaseUrl}/spells?spellname=${spellParam}`;
    
     return fetch(queryStringByName, {
-        mode: 'no-cors',
-        headers: { 
-            "Content-Type": "application/json" 
-        },
+        mode: "no-cors",
     }).then(response => {
         console.log("response", response);
             cache.put(request, response);

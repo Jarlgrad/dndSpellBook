@@ -33,6 +33,7 @@
     "style-loader": "^0.21.0",
     "sw-precache-webpack-plugin": "^0.11.5",
     "webpack-cli": "^2.1.2",
+    "webpack-command": "^0.2.0",
     "webpack-manifest-plugin": "^2.0.2"
   }
 }
