@@ -1,4 +1,4 @@
-import { webpack } from 'webpack';
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.config.js');
 
