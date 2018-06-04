@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchComponent from './search/SearchComponent.jsx';
 import CenterSpreadComponent from './centerSpread/CenterSpreadComponent.jsx';
+import PlayerComponent from './player/PlayerComponent.jsx';
 import { getSpellByName } from '../services/spellService.js';
 import { getPlayerByName } from '../services/playerService.js';
 import './style.scss';
@@ -13,7 +14,6 @@ export default class App extends React.Component {
     }
 
     searchSpell = searchInput => {
-        console.log("trying to call dndTome from app.jsx");
         getPlayerByName("jonas");
         
         getSpellByName(searchInput)
@@ -30,7 +30,10 @@ export default class App extends React.Component {
                 <div style={{textAlign: 'center'}}>
                     <h1>DnD Spell Book</h1>
                 </div>
-                <SearchComponent className="searchContainer__" searchSpell={this.searchSpell}/>
+                <div className="header__">
+                    <SearchComponent className="searchContainer__" searchSpell={this.searchSpell}/>
+                    <PlayerComponent className="playerContainer__"/>
+                </div>
                 <CenterSpreadComponent 
                     spell={this.state.spell}
                     spellBook={spellBook}
