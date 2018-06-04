@@ -7,6 +7,7 @@ var urlsToCache = [
 
 self.addEventListener('install', function(event) {
   // Perform install steps
+  console.log("[ServiceWorker] installing");
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
@@ -15,17 +16,18 @@ self.addEventListener('install', function(event) {
   );  
 });
 
-
 self.addEventListener('fetch', function(event) {
+  console.log('[Service Worker] Fetch', e.request.url);
   event.respondWith(
     caches.match(event.request)
-      .then(function(response) {
+      .then( response => {
         // Cache hit - return response
         if (response) {
+          console.log("matching fetch request", response);
           return response;
         }
-        return fetch(fetchRequest).then(
-          function(response) {
+        return fetch(fetchRequest).then( response => {
+            console.log("response from fetch: ", response);
             // Check if we received a valid response
             if(!response || response.status !== 200 || response.type !== 'basic') {
               return response;
@@ -39,6 +41,7 @@ self.addEventListener('fetch', function(event) {
 
             caches.open(CACHE_NAME)
               .then(function(cache) {
+                console.log("cache before adding more to cache: ", cache);
                 cache.put(event.request, responseToCache);
               });
 

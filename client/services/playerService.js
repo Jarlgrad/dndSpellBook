@@ -2,9 +2,7 @@ export const getPlayerByName = playerName => {
     let baseUrl = "https://dndtomeapi.azurewebsites.net/api/";
     let queryStringByName = `${baseUrl}players?playerName=${playerName}`;
 
-    return fetch(queryStringByName, {
-        mode: 'no-cors',
-    }).then(response => {
+    return fetch(queryStringByName).then(response => {
         if (response.ok) {
             return response.json();
         }

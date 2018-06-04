@@ -1,18 +1,14 @@
-export const getSpellByName = (spellParam) => {
+var CACHE_NAME = 'dnd-tome';
 
-    let apiBaseUrl = process.env.NODE_ENV === "production" 
-        ? "https://dndtomeapi.azurewebsites.net/api"
-        : "http://localhost:37813/api";
+let apiBaseUrl = process.env.NODE_ENV === "production" 
+    ? "https://dndtomeapi.azurewebsites.net/api"
+    : "http://localhost:37813/api";
 
-
+export const getSpellByName = spellParam => {
     const queryStringByName = `${apiBaseUrl}/spells?spellname=${spellParam}`;
    
-    return fetch(queryStringByName, {
-        mode: "no-cors",
-    }).then(response => {
-        console.log("response", response);
-            cache.put(request, response);
-        })
+    return fetch(queryStringByName)
+        .then(response => response.json())
         .catch(reason => {
             console.log(reason)
             return null;
