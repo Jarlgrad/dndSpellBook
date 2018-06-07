@@ -14,8 +14,6 @@ export default class App extends React.Component {
     }
 
     searchSpell = searchInput => {
-        getPlayerByName("jonas");
-        
         getSpellByName(searchInput)
             .then(spell => {
                 console.log("inside app.jsx", spell);
@@ -31,7 +29,7 @@ export default class App extends React.Component {
                     <h1>DnD Spell Book</h1>
                 </div>
                 <div className="header__">
-                    <SearchComponent className="searchContainer__" searchSpell={this.searchSpell}/>
+                    <SearchComponent className="searchContainer__" onSubmit={this.searchSpell}/>
                     <PlayerComponent className="playerContainer__"/>
                 </div>
                 <CenterSpreadComponent 

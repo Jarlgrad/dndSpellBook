@@ -29,7 +29,7 @@ export default class SearchComponent extends React.Component {
     submitSearch = (e) => {
         if (e.key == "Enter" || e.type == "click"){
             const queryString = this.buildQueryString();
-            this.props.searchSpell(queryString);
+            this.props.onSubmit(queryString);
         } 
     }
 

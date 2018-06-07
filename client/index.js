@@ -5,9 +5,10 @@ import './main.scss';
 import { register } from './registerServiceWorker.js';
 
 console.log("Henlo dnd world!");
-console.log(process.env["SQLAZURECONNSTR_DbConnection"]);
+// console.log(process.env["SQLAZURECONNSTR_DbConnection"]);
 
 if (process.env.NODE_ENV !== 'production') {
+    console.log(process.env.dndTomeApiUrl);
     console.log('Looks like we are in development mode!');
 }
 
