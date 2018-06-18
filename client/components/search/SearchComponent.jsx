@@ -4,7 +4,7 @@ import SearchGlass from '../../static/img/search.png';
 export default class SearchComponent extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {inputValue: ""}
+        this.state = {inputValue: "", inputFieldPlaceholder: this.props.placeholder}
     }
 
     updateInputValue = (e) => {
@@ -38,7 +38,7 @@ export default class SearchComponent extends React.Component {
         return (
             <div>
                 <input  type="text" 
-                        placeholder="search for spells"
+                        placeholder={this.state.inputFieldPlaceholder}
                         onChange={this.updateInputValue} 
                         onKeyUp={this.submitSearch} />
                 <img    src={SearchGlass} 

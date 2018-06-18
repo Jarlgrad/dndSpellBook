@@ -29,7 +29,9 @@ export default class App extends React.Component {
                     <h1>DnD Spell Book</h1>
                 </div>
                 <div className="header__">
-                    <SearchComponent className="searchContainer__" onSubmit={this.searchSpell}/>
+                    <SearchComponent className="searchContainer__" 
+                                     onSubmit={this.searchSpell}
+                                     placeholder="search for spell"/>
                     <PlayerComponent className="playerContainer__"/>
                 </div>
                 <CenterSpreadComponent 

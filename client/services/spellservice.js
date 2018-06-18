@@ -5,7 +5,7 @@ let apiBaseUrl = process.env.NODE_ENV === "production"
     : "http://localhost:37813/api";
 
 export const getSpellByName = spellParam => {
-    const queryStringByName = `${apiBaseUrl}/spells?spellname=${spellParam}`;
+    const queryStringByName = `${apiBaseUrl}/spells?spellName=${spellParam}`;
    
     return fetch(queryStringByName)
         .then(response => response.json())
